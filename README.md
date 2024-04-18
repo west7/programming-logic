@@ -1,3 +1,3 @@
 # programming-logic
 
-att
+repository dedicated for programming logic practice in multiple languages 
