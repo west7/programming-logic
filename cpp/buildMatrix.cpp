@@ -12,23 +12,23 @@ class Solution
 public:
     vector<int> topological_sort(int k, vector<vector<int>> &conditions)
     {
-        vector<int> degree(k + 1);
+        vector<int> inDegree(k + 1);
         vector<vector<int>> graph (k + 1);
 
         for (auto &condition : conditions)
         {
             graph[condition[0]].push_back(condition[1]);
-            degree[condition[1]]++;
+            inDegree[condition[1]]++;
         }
 
         queue<int> q;
         for (int i = 1; i <= k; ++i)
-            if (degree[i] == 0)
+            if (inDegree[i] == 0)
                 q.push(i);
 
         int cnt = 0;
         vector<int> order;
-        while (!q.empty())
+        for (; !q.empty();)
         {
             int cur = q.front();
             q.pop();
@@ -37,8 +37,8 @@ public:
 
             for (int neighbor : graph[cur])
             {
-                degree[neighbor]--;
-                if (degree[neighbor] == 0)
+                inDegree[neighbor]--;
+                if (inDegree[neighbor] == 0)
                 {
                     q.push(neighbor);
                 }
