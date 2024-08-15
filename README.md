@@ -1,4 +1,4 @@
-# rogramming-logic
+# programming-logic
 
 Repository dedicated for programming logic practice in multiple languages.
 
